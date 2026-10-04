@@ -1,5 +1,5 @@
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [name, setName] = useState("");
@@ -17,84 +17,84 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>ระบบจองคิวสนามกีฬาแบดมินตัน</h1>
-      <p>ณ อาคารสงวนเสริมศรี</p>
+    <div className="page">
+      <div className="container">
+        <header className="header">
+          <h1>ระบบจองคิวสนามกีฬาแบดมินตัน</h1>
+          <p>ณ อาคารสงวนเสริมศรี</p>
+        </header>
 
-      <h2>จองสนาม</h2>
+        <main className="card">
+          <h2>จองสนามแบดมินตัน</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>ชื่อผู้จอง</label>
-          <br />
-          <input
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder="กรอกชื่อผู้จอง"
-            required
-          />
-        </div>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">ชื่อผู้จอง</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="กรอกชื่อผู้จอง"
+                required
+              />
+            </div>
 
-        <br />
+            <div className="form-group">
+              <label htmlFor="court">สนาม</label>
+              <select
+                id="court"
+                value={court}
+                onChange={(event) => setCourt(event.target.value)}
+              >
+                <option>สนาม 1</option>
+                <option>สนาม 2</option>
+                <option>สนาม 3</option>
+                <option>สนาม 4</option>
+              </select>
+            </div>
 
-        <div>
-          <label>สนาม</label>
-          <br />
-          <select
-            value={court}
-            onChange={(event) => setCourt(event.target.value)}
-          >
-            <option>สนาม 1</option>
-            <option>สนาม 2</option>
-            <option>สนาม 3</option>
-            <option>สนาม 4</option>
-          </select>
-        </div>
+            <div className="form-group">
+              <label htmlFor="date">วันที่</label>
+              <input
+                id="date"
+                type="date"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
+                required
+              />
+            </div>
 
-        <br />
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="startTime">เวลาเริ่มต้น</label>
+                <input
+                  id="startTime"
+                  type="time"
+                  value={startTime}
+                  onChange={(event) => setStartTime(event.target.value)}
+                  required
+                />
+              </div>
 
-        <div>
-          <label>วันที่</label>
-          <br />
-          <input
-            type="date"
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-            required
-          />
-        </div>
+              <div className="form-group">
+                <label htmlFor="endTime">เวลาสิ้นสุด</label>
+                <input
+                  id="endTime"
+                  type="time"
+                  value={endTime}
+                  onChange={(event) => setEndTime(event.target.value)}
+                  required
+                />
+              </div>
+            </div>
 
-        <br />
-
-        <div>
-          <label>เวลาเริ่มต้น</label>
-          <br />
-          <input
-            type="time"
-            value={startTime}
-            onChange={(event) => setStartTime(event.target.value)}
-            required
-          />
-        </div>
-
-        <br />
-
-        <div>
-          <label>เวลาสิ้นสุด</label>
-          <br />
-          <input
-            type="time"
-            value={endTime}
-            onChange={(event) => setEndTime(event.target.value)}
-            required
-          />
-        </div>
-
-        <br />
-
-        <button type="submit">จองสนาม</button>
-      </form>
+            <button className="booking-button" type="submit">
+              จองสนาม
+            </button>
+          </form>
+        </main>
+      </div>
     </div>
   );
 }
